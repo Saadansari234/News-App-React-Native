@@ -39,22 +39,22 @@ const HomeScreen = () => {
             <Header />
             <ScrollView>
                 {!isLoading ? (
-                    articles.map(article => {
+                    articles.map((article,index) => {
                         const { date, title, url, description, urlToImage } = article;
                         return (
                             <Card
-                                key={url}
-                                style={{ marginTop: 10, borderColor: 'black', borderRadius: 5, borderBottomWidth: 1 }}
+                                key={index}
+                                style={{ marginTop: 10, marginLeft:10,marginRight:10, borderColor: 'black', borderRadius: 5, borderBottomWidth: 1 }}
                                 onPress={() => { Linking.openURL(`${url}`) }}
                             >
-                                <View style={{ flexDirection: 'row' }}>
+                                <View style={{ flexDirection: 'row',  }}>
                                     {/*  Text */}
                                     <View style={{ justifyContent: 'space-around', flex: 2 / 3, margin: 10 }}>
                                         <Title>{title}</Title>
                                     </View>
                                     {/*  Image */}
                                     <View style={{ flex: 1 / 3, margin: 10 }}>
-                                        <Image style={{ width: 120, height: 120 }} source={{ uri: urlToImage }} />
+                                        <Image style={{ width: 100, height: 100 }} source={{ uri: urlToImage }} />
                                     </View>
                                 </View>
                                 <View style={{ margin: 10 }}>
